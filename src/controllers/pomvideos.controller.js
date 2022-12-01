@@ -3,7 +3,6 @@ import { pool } from "../db.js"
 export const getPomvideos = async (req, res) => {
 
     try {
-        console.log("entraste al primero")
         const [rows] = await pool.query('SELECT * FROM b9dw0vobstpr7etg0eho.pomvideo where estado <> 0')
         res.send(rows)
     } catch (error) {

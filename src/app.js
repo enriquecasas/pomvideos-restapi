@@ -2,14 +2,15 @@ import express from "express"
 import pomvideoRoutes from './routes/pomvideo.routes.js'
 import indexRoutes from './routes/index.routes.js'
 import authUser from './routes/auth.routes.js'
+import cors from 'cors';
 
 const app = express()
-// const cors = require('cors')
-
+app.use(cors())
 app.use(express.json())
 app.use(indexRoutes)
 app.use(authUser)
-// app.use(cors())
+
+
 app.use('/api', pomvideoRoutes)
 
 app.use((req, res, next) => {
